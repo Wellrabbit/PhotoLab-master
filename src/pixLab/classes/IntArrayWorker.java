@@ -28,7 +28,53 @@ public class IntArrayWorker
     }
     return total;
   }
-  
+  /**
+   * Finds the number of times intigers appear in an array
+   * @param input
+   * @return
+   */
+  public int getCount(int input)
+  {	int count = 0;
+	  for (int row = 0; row < matrix.length; row++)
+	  {
+		   for(int col = 0; col < matrix[0].length; col++)
+		   {
+			   if(matrix[row][col] == input)
+			   {
+				   count++;
+			   }
+		   }
+	  }
+	  return count;
+  }
+  /*
+   * get the largest intiger
+   */
+  public int getLargest()
+  {
+	  int largest = 0;
+	  for(int row = 0; row < matrix.length; row++)
+	  {
+		  for(int col = 0; col < matrix[0].length; col++)
+		  {
+			  int currentValue = matrix[row][col];
+			  if(currentValue > largest)
+			  {
+				  largest = currentValue;
+			  }
+		  }
+	  }
+	  return largest;
+  }
+  public int getColTotal(int input)
+  {
+	  int total = 0;
+	  for(int row = 0; row < matrix.length; row++)
+	  {
+		  total = total + matrix[row][input];
+	  }
+	  return total;
+  }
   /**
    * Method to return the total using a nested for-each loop
    * @return the total of the values in the array
