@@ -122,6 +122,37 @@ public class Picture extends SimplePicture
 		  }
 	  }
   }
+  
+  public void keepOnlyGreen()
+  {
+	  zeroRed();
+	  zeroBlue();
+  }
+  public void keepOnlyBlue()
+  {
+	  zeroRed();
+	  zeroGreen();
+  }
+  public void keepOnlyRed()
+  {
+	  zeroGreen();
+	  zeroBlue();
+  }
+  
+  public void grayscaleFilter()
+  {
+	  Pixel[][] pixels = this.getPixels2D();
+	    for (Pixel[] rowArray : pixels)
+	    {
+	      for (Pixel pixelObj : rowArray)
+	      {
+	        
+	        pixelObj.setRed(10);
+	        pixelObj.setGreen(10);
+	      }
+	    }
+	  
+  }
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -250,14 +281,10 @@ public class Picture extends SimplePicture
     Picture beach = new Picture("beach.jpg");
     Picture temple = new Picture("temple.jpg");
     beach.explore();
-    beach.mirrorTemple();
-    beach.mirrorVertical();
+    beach.keepOnlyRed();
     beach.explore();
-    temple.explore();
-    temple.mirrorTemple();
-    temple.mirrorVertical();
-    temple.explore();
-   
+    beach.keepOnlyBlue();
+    beach.explore();
    
     
   }
